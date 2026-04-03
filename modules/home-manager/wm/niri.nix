@@ -54,7 +54,6 @@ in {
 
     spawn-at-startup "nm-applet"
     spawn-at-startup "${wallpaperScript}"
-    spawn-at-startup "${pkgs.waybar}/bin/waybar"
 
     binds {
       Mod+Shift+Slash { show-hotkey-overlay; }

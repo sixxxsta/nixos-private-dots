@@ -11,6 +11,7 @@
           "custom/app-browser"
           "custom/app-terminal"
           "custom/app-files"
+          "custom/app-code"
           "niri/workspaces"
         ];
         modules-center = [ "niri/window" ];
@@ -61,6 +62,13 @@
           tooltip = true;
           tooltip-format = "Thunar";
           on-click = "thunar";
+        };
+
+        "custom/app-code" = {
+          format = "󰨞";
+          tooltip = true;
+          tooltip-format = "VS Code";
+          on-click = "code";
         };
 
         backlight = {
@@ -148,7 +156,8 @@
 
       #custom-app-browser,
       #custom-app-terminal,
-      #custom-app-files {
+      #custom-app-files,
+      #custom-app-code {
         padding: 0 12px;
         color: #ebdbb2;
         border-bottom: 5px solid #d65d0e;
@@ -156,7 +165,8 @@
 
       #custom-app-browser:hover,
       #custom-app-terminal:hover,
-      #custom-app-files:hover {
+      #custom-app-files:hover,
+      #custom-app-code:hover {
         background: #3c3836;
       }
 
