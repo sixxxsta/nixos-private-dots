@@ -1,7 +1,11 @@
+{ lib, ... }:
 let
   extraLocale = "ru_RU.UTF-8"; # Язык даты, времени, адресов и тд
 in {
-  time.timeZone = "Europe/Moscow";
+  # Автоопределение часового пояса (например, ЕКБ) вместо жёсткого Moscow.
+  # Fallback нужен на случай, если геоопределение временно недоступно.
+  time.timeZone = lib.mkDefault "Etc/UTC";
+  services.automatic-timezoned.enable = true;
 
   i18n = {
     defaultLocale = "en_US.UTF-8"; # Язык системы
