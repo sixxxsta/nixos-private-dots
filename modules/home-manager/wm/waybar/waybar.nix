@@ -7,7 +7,12 @@
         layer = "top";
         position = "top";
         height = 30;
-        modules-left = [ "niri/workspaces" ];
+        modules-left = [
+          "custom/app-browser"
+          "custom/app-terminal"
+          "custom/app-files"
+          "niri/workspaces"
+        ];
         modules-center = [ "niri/window" ];
         modules-right = [
           "niri/language"
@@ -35,6 +40,27 @@
 
         "niri/language" = {
           format = "⌨ {}";
+        };
+
+        "custom/app-browser" = {
+          format = "";
+          tooltip = true;
+          tooltip-format = "Firefox";
+          on-click = "firefox";
+        };
+
+        "custom/app-terminal" = {
+          format = "";
+          tooltip = true;
+          tooltip-format = "Alacritty";
+          on-click = "alacritty";
+        };
+
+        "custom/app-files" = {
+          format = "";
+          tooltip = true;
+          tooltip-format = "Thunar";
+          on-click = "thunar";
         };
 
         backlight = {
@@ -118,6 +144,20 @@
 
       #workspaces button.active {
         background: #d65d0e;
+      }
+
+      #custom-app-browser,
+      #custom-app-terminal,
+      #custom-app-files {
+        padding: 0 12px;
+        color: #ebdbb2;
+        border-bottom: 5px solid #d65d0e;
+      }
+
+      #custom-app-browser:hover,
+      #custom-app-terminal:hover,
+      #custom-app-files:hover {
+        background: #3c3836;
       }
 
       #clock,
