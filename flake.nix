@@ -2,11 +2,9 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Вторая unstable ветка, которую я буду обновлять отдельно
-    # Нужна если я не хочу обновлять систему, но хочу обновить конкретный софт
-    # Просто задам этому софту репу pkgs2 и обновлю только её
-    nixpkgs2.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    # Второй пакетный набор. По умолчанию тоже стабильный.
+    nixpkgs2.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     home-manager = {

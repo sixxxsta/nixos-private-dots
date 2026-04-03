@@ -14,7 +14,7 @@
   # };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest; # Ядро линуха, ласт версия
+    kernelPackages = pkgs.linuxPackages; # Стабильное ядро из текущего канала
     # kernelParams = [ # https://nixos.wiki/wiki/AMD_GPU#Dual_Monitors
     #   "video=1920x1080"
     # ];
