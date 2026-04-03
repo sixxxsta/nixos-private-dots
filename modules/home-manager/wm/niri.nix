@@ -129,7 +129,7 @@ in {
       Mod+V { spawn "clipmenu" }
       Mod+BackSpace { spawn "${pkgs.rofi}/bin/rofi" "-show" "powermenu" "-modi" "powermenu:${pkgs.rofi-power-menu}/bin/rofi-power-menu" "-theme" "${rofiPower}" }
 
-      Mod+B { spawn "firefox"; }
+      Mod+B { spawn "firefox" }
       Mod+Shift+B { spawn "vivaldi" }
       Mod+N { spawn-sh "dunstctl history-pop" }
       Mod+Shift+N { spawn-sh "dunstctl close-all" }
