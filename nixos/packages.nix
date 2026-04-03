@@ -213,7 +213,7 @@
     virtualbox # VirtualBox client
 
     # Frontend
-    pkgs2.nodejs_24 # For npm
+    pkgs.nodejs # For npm
     htmx-lsp # HTMX lsp
     emmet-language-server # Emmet.io LSP
     vscode-langservers-extracted # HTML/CSS/JSON/ESLint LSP
