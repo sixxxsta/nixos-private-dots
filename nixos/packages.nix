@@ -229,11 +229,6 @@
     protoc-gen-go
     protoc-gen-go-grpc
 
-    # Gamedev
-    pkgs2.godot
-    pkgs2.gdtoolkit_4
-    ldtk
-
     # Other
     hugo # Для моего блога
     yaml-language-server # YAML LSP
