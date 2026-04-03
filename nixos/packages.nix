@@ -45,7 +45,7 @@
     # archisteamfarm = {}; # Фарм карточек стима афк. Просто раскомментить мало, надо настроить
     ollama = {
       enable = true;
-      acceleration = "cpu";
+      acceleration = "cuda";
       # Ollama Port 11434/tcp
       host = "0.0.0.0";
       port = 11434;
