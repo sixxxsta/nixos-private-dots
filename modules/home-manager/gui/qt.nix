@@ -9,7 +9,7 @@
       style=kvantum-dark
 
       [Fonts]
-      fixed="JetBrainsMono Nerd Font,9,-1,5,50,0,0,0,0,0,Regular"
+      fixed="DejaVu Sans Mono,9,-1,5,50,0,0,0,0,0,Book"
       general="Cantarell,10,-1,5,50,0,0,0,0,0"
 
       [Interface]
@@ -44,7 +44,7 @@
       style=kvantum-dark
 
       [Fonts]
-      fixed="JetBrainsMono Nerd Font,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
+      fixed="DejaVu Sans Mono,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Book"
       general="Cantarell,10,-1,5,300,0,0,0,0,0,0,0,0,0,0,1"
 
       [Interface]

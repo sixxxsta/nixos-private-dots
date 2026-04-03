@@ -62,7 +62,7 @@
     #   "telemetry.telemetryLevel" = "off";
     #   "update.showReleaseNotes" = false;
     #   "workbench.colorTheme" = "Gruvbox Dark Medium";
-    #   "editor.fontFamily" = "JetBrainsMono Nerd Font";
+    #   "editor.fontFamily" = "DejaVu Sans Mono";
     #   "editor.lineNumbers" = "relative";
     # };
 

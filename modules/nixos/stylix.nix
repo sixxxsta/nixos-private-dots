@@ -23,8 +23,8 @@
 
       # Ширина символов одинаковая
       monospace = { # default = DejaVu Sans Mono
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMonoNL Nerd Font Mono";
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans Mono";
       };
 
       emoji = { # default = Noto Color Emoji
@@ -34,8 +34,8 @@
 
       # Без засечек
       sansSerif = { # default = DejaVu Sans
-        package = pkgs.nerd-fonts.noto;
-        name = "NotoSans Nerd Font";
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
       };
 
       # С засечками
