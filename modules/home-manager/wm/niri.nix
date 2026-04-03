@@ -13,6 +13,7 @@ in {
   home.packages = with pkgs; [
     swaylock
     fuzzel
+    vscode
   ];
 
   xdg.configFile."niri/config.kdl".text = ''

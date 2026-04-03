@@ -1,5 +1,7 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 {
+  home.packages = with pkgs; [ vscode ];
+
   programs.fuzzel = {
     enable = true;
     settings = lib.mkForce {
