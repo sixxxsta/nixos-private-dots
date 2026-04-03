@@ -70,7 +70,7 @@
           format = "";
           tooltip = true;
           tooltip-format = "VS Code";
-          on-click = "${pkgs.vscode}/bin/code";
+          on-click = "${pkgs.vscode}/bin/code --ozone-platform=wayland";
         };
 
         backlight = {

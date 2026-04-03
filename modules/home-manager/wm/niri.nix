@@ -146,7 +146,7 @@ in {
       Mod+Shift+N { spawn "dunstctl" "close-all"; }
       Mod+Ctrl+N { spawn "obsidian"; }
       Mod+E { spawn "thunar"; }
-      Mod+I { spawn "code"; }
+      Mod+I { spawn "code" "--ozone-platform=wayland"; }
       Mod+M { spawn "alacritty" "-e" "btop"; }
       Mod+G { spawn "io.github.alainm23.planify"; }
       Mod+Shift+X { spawn "gcolor3"; }
