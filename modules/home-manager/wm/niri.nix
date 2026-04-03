@@ -54,19 +54,18 @@ in {
     binds {
       Mod+Shift+Slash { show-hotkey-overlay; }
 
-      Mod+Return { spawn "alacritty"; }
-      Mod+Shift+Return { spawn "alacritty" "--class" "floating-terminal"; }
+      Mod+Shift+Return { spawn "alacritty"; }
+      Mod+Return { spawn "alacritty" "--class" "floating-terminal"; }
       Mod+T { spawn "alacritty"; }
       Mod+Shift+T { spawn "alacritty" "--class" "floating-terminal"; }
       Mod+Ctrl+T { spawn "kitty"; }
       Mod+Ctrl+Shift+T { spawn "kitty" "--class" "floating-terminal"; }
       Mod+Tab { spawn "${pkgs.rofi}/bin/rofi" "-show" "window" "-theme" "${rofiLauncher}"; }
 
-      Mod+Q { close-window; }
-      Mod+Shift+Q { close-window; }
+      Mod+Shift+C { close-window; }
       Mod+F { toggle-window-floating; }
       Mod+Shift+F { fullscreen-window; }
-      Mod+Shift+L { spawn "swaylock"; }
+      Mod+Alt+L { spawn "swaylock"; }
       Mod+Shift+E { quit; }
       Ctrl+Alt+Delete { quit; }
 
@@ -79,6 +78,10 @@ in {
       Mod+K { focus-window-up; }
       Mod+L { focus-column-right; }
 
+      Mod+Shift+Left { move-column-left; }
+      Mod+Shift+Down { move-window-down; }
+      Mod+Shift+Up { move-window-up; }
+      Mod+Shift+Right { move-column-right; }
       Mod+Ctrl+Left { move-column-left; }
       Mod+Ctrl+Down { move-window-down; }
       Mod+Ctrl+Up { move-window-up; }
@@ -100,6 +103,15 @@ in {
       Mod+8 { focus-workspace 8; }
       Mod+9 { focus-workspace 9; }
 
+      Mod+Shift+1 { move-column-to-workspace 1; }
+      Mod+Shift+2 { move-column-to-workspace 2; }
+      Mod+Shift+3 { move-column-to-workspace 3; }
+      Mod+Shift+4 { move-column-to-workspace 4; }
+      Mod+Shift+5 { move-column-to-workspace 5; }
+      Mod+Shift+6 { move-column-to-workspace 6; }
+      Mod+Shift+7 { move-column-to-workspace 7; }
+      Mod+Shift+8 { move-column-to-workspace 8; }
+      Mod+Shift+9 { move-column-to-workspace 9; }
       Mod+Ctrl+1 { move-column-to-workspace 1; }
       Mod+Ctrl+2 { move-column-to-workspace 2; }
       Mod+Ctrl+3 { move-column-to-workspace 3; }
@@ -110,6 +122,7 @@ in {
       Mod+Ctrl+8 { move-column-to-workspace 8; }
       Mod+Ctrl+9 { move-column-to-workspace 9; }
 
+      Mod+D { spawn "${pkgs.rofi}/bin/rofi" "-show" "drun" "-show-icons" "-theme" "${rofiLauncher}"; }
       Mod+A { spawn "${pkgs.rofi}/bin/rofi" "-show" "drun" "-show-icons" "-theme" "${rofiLauncher}"; }
       Mod+C { spawn "${pkgs.rofi}/bin/rofi" "-show" "calc" "-modi" "calc" "-no-show-match" "-no-sort" "-theme" "${rofiLauncher}"; }
       Mod+P { spawn "rofi-pass"; }
@@ -118,13 +131,15 @@ in {
 
       Mod+B { spawn "firefox"; }
       Mod+Shift+B { spawn "vivaldi"; }
-      Mod+N { spawn "obsidian"; }
+      Mod+N { spawn-sh "dunstctl history-pop"; }
+      Mod+Shift+N { spawn-sh "dunstctl close-all"; }
+      Mod+Ctrl+N { spawn "obsidian"; }
       Mod+E { spawn "thunar"; }
       Mod+I { spawn "code"; }
       Mod+M { spawn "alacritty" "-e" "btop"; }
       Mod+G { spawn "io.github.alainm23.planify"; }
-      Mod+Shift+C { spawn "gcolor3"; }
-      Mod+Ctrl+C { spawn "xcolor" "-s"; }
+      Mod+Shift+X { spawn "gcolor3"; }
+      Mod+Ctrl+X { spawn "xcolor" "-s"; }
 
       XF86AudioMute { spawn-sh "pamixer -t"; }
       XF86AudioMicMute { spawn-sh "pamixer --default-source -t"; }

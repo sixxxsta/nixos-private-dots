@@ -8,11 +8,12 @@
 
 Клавиша `Super` это клавиша `Win`
 
-- `Super + A` - Запускатор приложений
-- `Super + Q` - Закрыть приложение (если добавить shift, то это kill приложения, если оно зависло и не закрывается)
+- `Super + D` - Запускатор приложений (alias: `Super + A`)
+- `Super + Shift + C` - Закрыть активное окно
 - `Super + 0-9` - Переключить воркспейс (если добавить shift, то кидает активное окно на указанный воркспейс)
 - `Super + Esc` - Быстро перейти на соседний воркспейс
-- `Super + T` - Открыть терминал (если добавить shift, то floating терминал; если ctrl, то откроется kitty)
+- `Super + Shift + Return` - Открыть терминал
+- `Super + Return` - Floating терминал
 - `Super + ПКМ` - Менять размер окна, на котором зажал ПКМ и водишь мышкой
 - `Super + ЛКМ` - Двигать окно, на котором зажал ЛКМ
 - `Super + F` - Делает окно flotaing и обратно tiling при повторном нажатии (если забагалось и делает фулскрин, то добавь shift, чтоб переключить в tiling)
@@ -28,8 +29,7 @@
 | Bspwm                             | Описание                                                                                    |
 | --------------------------------- | ------------------------------------------------------------------------------------------- |
 | `Super + L`                       | Lock screen                                                                                 |
-| `Super + Q`                       | Quit. Закрыть приложение                                                                     |
-| `Super + Shift + Q`               | Закрыть приложение (alias под старую привычку)                                               |
+| `Super + Shift + C`               | Закрыть активное окно                                                                         |
 | `Super + F`                       | Floating toggle                                                                             |
 | `Super + Shift + F`               | Tiled toggle                                                                                |
 | `Super + Enter`                   | Fullscreen toggle                                                                           |
@@ -40,7 +40,7 @@
 | `Super + 0-9`                     | Переключить воркспейс на 1-10. Если они общие на все моники, то добавить F1-F12 для 11-22   |
 | `Super + Shift + 0-9`             | Перекинуть активное окно на воркспейс. Желательно silent, чтоб меня не перекидывало к проге |
 | `Super + Ctrl + Down`             | Переключает на первый пустой воркспейс                                                      |
-| `Super + Ctrl + Left/Right`       | Перемещает активную колонку/окно влево или вправо                                            |
+| `Super + Shift + Left/Right`      | Перемещает активную колонку/окно влево или вправо                                            |
 | `Super + Ctrl + Alt + Down`       | Свапает активное окно с самым большим на экране                                             |
 | `Super + Ctrl + Alt + Left/Right` | Перекидывает активное окно на предыдущий/следующий воркспейс и следует за ним               |
 | `Super + Alt + Arrows`            | Move floating window                                                                        |
@@ -54,32 +54,34 @@
 
 | Rofi                | Описание                                                                                       | Работает? |
 | ------------------- | ---------------------------------------------------------------------------------------------- | --------- |
-| `Super + A`         | Applications. Запускатор софта                                                                 |     Да    |
+| `Super + D`         | Applications. Запускатор софта                                                                 |     Да    |
+| `Super + A`         | Applications. Alias запускатора                                                                |     Да    |
 | `Super + C`         | Calculator имбовый. Можно даже написать `5600 USD to BTC` или `500 + 25%`.                     |     Да    |
 | `Super + P`         | Passwords. Пароли из утилиты pass                                                              |     Да    |
 | `Super + V`         | История буфера обмена. Как ctrl+v, но через win.                                               |     Да    |
 | `Super + Backspace` | PowerMenu. Выключение пк                                                                       |     Да    |
 | `Super + Tab`       | Как alt+tab, переключение окон. На нужный воркспейс само перекинет                             |     Да    |
 | `Super + Alt + T`   | Timer. Думаю сделать через утилиту timer                                                       |нет|
-| `Super + Shift + N` | Notification history. История оповещений. Мб сделать только в баре кнопку? Мб не делать вообще |нет|
+| `Super + N`         | Notification history pop (dunstctl history-pop)                                                |     Да    |
+| `Super + Shift + N` | Закрыть все уведомления (dunstctl close-all)                                                   |     Да    |
 
 | Applications               | Описание                                  | Работает? |
 | -------------------------- | ----------------------------------------- | --------- |
 | `Super + B`                | Browser LibreWolf. Основа                 |     Да    |
 | `Super + Shift + B`        | Browser Firefox. Паблик активность        |     Да    |
 | `Super + Shift + Ctrl + B` | Browser Chromium. Пусть будет             |     Да    |
-| `Super + N`                | Note taking app (obsidian)                |     Да    |
+| `Super + Ctrl + N`         | Note taking app (obsidian)                |     Да    |
 | `Super + E`                | Explorer. Thunar file manager             |     Да    |
 | `Super + I`                | IDE, text editor                          |     Да    |
 | `Super + M`                | Monitor of resources (btop)               |     Да    |
 | `Super + G`                | Goals. Todo manager. Task tracker         |     Да    |
-| `Super + Shift + C`        | Color picker. Получить hex в буфер обмена |     Да    |
-| `Super + Ctrl + C`         | Color picker. Получить rgb в буфер обмена |     Да    |
+| `Super + Shift + X`        | Color picker. Получить hex в буфер обмена |     Да    |
+| `Super + Ctrl + X`         | Color picker. Получить rgb в буфер обмена |     Да    |
 
 | Terminal                   | Описание                                                                     | Работает? |
 | -------------------------- | ---------------------------------------------------------------------------- | --------- |
-| `Super + T`                | Terminal основной (alacritty)                                                |     Да    |
-| `Super + Shift + T`        | Floating Terminal основной (alacritty)                                       |     Да    |
+| `Super + Shift + Return`   | Terminal основной (alacritty)                                                |     Да    |
+| `Super + Return`           | Floating Terminal основной (alacritty)                                       |     Да    |
 | `Super + Ctrl + T`         | Terminal запасной (kitty)                                                    |     Да    |
 | `Super + Shift + Ctrl + T` | Floating Terminal запасной (kitty)                                           |     Да    |
 
