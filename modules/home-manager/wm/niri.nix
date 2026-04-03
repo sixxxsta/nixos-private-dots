@@ -21,8 +21,8 @@ in {
       }
 
       touchpad {
-        tap true
-        natural-scroll true
+        tap
+        natural-scroll
         accel-profile "flat"
       }
     }
@@ -42,16 +42,13 @@ in {
       }
 
       border {
-        enabled true
         width 1
         active-color "#${config.lib.stylix.colors.base08}"
         inactive-color "#${config.lib.stylix.colors.base01}"
       }
     }
 
-    spawn-at-startup {
-      spawn "nm-applet";
-    }
+    spawn-at-startup "nm-applet"
 
     binds {
       Mod+Shift+Slash { show-hotkey-overlay; }
