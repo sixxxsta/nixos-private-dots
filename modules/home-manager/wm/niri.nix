@@ -54,6 +54,7 @@ in {
 
     spawn-at-startup "nm-applet"
     spawn-at-startup "${wallpaperScript}"
+    spawn-at-startup "${pkgs.waybar}/bin/waybar"
 
     binds {
       Mod+Shift+Slash { show-hotkey-overlay; }
@@ -69,6 +70,7 @@ in {
       Mod+Q { close-window; }
       Mod+Shift+C { close-window; }
       Mod+F { toggle-window-floating; }
+      Mod+R { switch-preset-column-width; }
       Mod+Shift+F { fullscreen-window; }
       Mod+Alt+L { spawn "swaylock"; }
       Mod+Shift+E { quit; }

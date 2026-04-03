@@ -11,8 +11,9 @@
         modules-center = [ "niri/window" ];
         modules-right = [
           "niri/language"
-          "custom/weather"
+          "backlight"
           "pulseaudio"
+          "network"
           "battery"
           "clock"
           "tray"
@@ -21,20 +22,11 @@
         "niri/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
-            "6" = "";
-            "7" = "";
-            "8" = "";
-            "9" = "";
-            magic = "";
+            default = "•";
+            active = "●";
+            focused = "●";
+            urgent = "!";
           };
-          persistent-workspaces = { "*" = 9; };
-          show-special = true;
-          special-visible-only = true;
         };
 
         "niri/window" = {
@@ -42,16 +34,11 @@
         };
 
         "niri/language" = {
-          format-en = "🇺🇸";
-          format-ru = "🇷🇺";
-          min-length = 5;
+          format = "⌨ {}";
         };
 
-        "custom/weather" = {
-          class = "weather";
-          exec = "${pkgs.curl}/bin/curl -s 'wttr.in/Tashkent?format=%c%t'";
-          format = " {} ";
-          interval = 300;
+        backlight = {
+          format = "☀ {percent}%";
         };
 
         pulseaudio = {
@@ -68,6 +55,13 @@
           };
           format-muted = "";
           on-click = "pavucontrol";
+        };
+
+        network = {
+          format-wifi = "  {signalStrength}%";
+          format-ethernet = "  {ipaddr}";
+          format-disconnected = "󰖪 offline";
+          tooltip-format = "{ifname} via {gwaddr}";
         };
 
         battery = {
@@ -129,9 +123,10 @@
       #clock,
       #battery,
       #pulseaudio,
+      #backlight,
+      #network,
       #tray,
-      #language,
-      #custom-weather {
+      #language {
         padding: 0 10px;
       }
 
@@ -140,14 +135,19 @@
         border-bottom: 5px solid #d79921;
       }
 
-      #custom-weather {
-        color: #98971a;
-        border-bottom: 5px solid #98971a;
+      #backlight {
+        color: #fe8019;
+        border-bottom: 5px solid #fe8019;
       }
 
       #pulseaudio {
         color: #689d6a;
         border-bottom: 5px solid #689d6a;
+      }
+
+      #network {
+        color: #83a598;
+        border-bottom: 5px solid #83a598;
       }
 
       #pulseaudio.muted {
@@ -175,6 +175,5 @@
 
   home.packages = with pkgs; [
     waybar
-    curl
   ];
 }

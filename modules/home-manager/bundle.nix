@@ -26,6 +26,7 @@
 
     # Софт для работы WM на Wayland
     ./wm/rofi/rofi.nix
+    ./wm/fuzzel.nix
     ./wm/dunst.nix
     ./wm/niri.nix
     ./wm/waybar/waybar.nix
