@@ -1,8 +1,8 @@
-{ config, ... }:
+{ lib, config, ... }:
 {
   programs.fuzzel = {
     enable = true;
-    settings = {
+    settings = lib.mkForce {
       main = {
         terminal = "alacritty";
         font = "JetBrains Mono:size=14";
