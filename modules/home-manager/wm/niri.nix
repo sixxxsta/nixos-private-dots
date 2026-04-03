@@ -5,6 +5,10 @@ let
   wallpaperScript = pkgs.writeShellScript "niri-wallpaper" ''
     ${pkgs.swaybg}/bin/swaybg -i ${config.home.homeDirectory}/.config/wallpapers/nix-glow-gruvbox.jpg &
   '';
+  waybarScript = pkgs.writeShellScript "niri-waybar" ''
+    ${pkgs.procps}/bin/pkill -x waybar >/dev/null 2>&1 || true
+    ${pkgs.waybar}/bin/waybar >/dev/null 2>&1 &
+  '';
 in {
   home.packages = with pkgs; [
     swaylock
@@ -54,6 +58,7 @@ in {
 
     spawn-at-startup "nm-applet"
     spawn-at-startup "${wallpaperScript}"
+    spawn-at-startup "${waybarScript}"
 
     binds {
       Mod+Shift+Slash { show-hotkey-overlay; }

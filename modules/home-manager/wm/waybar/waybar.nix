@@ -2,6 +2,7 @@
 {
   programs.waybar = {
     enable = true;
+    systemd.enable = false;
     settings = {
       mainBar = {
         layer = "top";
@@ -19,6 +20,7 @@
           "niri/language"
           "backlight"
           "pulseaudio"
+          "cpu"
           "network"
           "battery"
           "clock"
@@ -65,10 +67,10 @@
         };
 
         "custom/app-code" = {
-          format = "󰨞";
+          format = "";
           tooltip = true;
           tooltip-format = "VS Code";
-          on-click = "code";
+          on-click = "${pkgs.vscode}/bin/code";
         };
 
         backlight = {
@@ -89,6 +91,12 @@
           };
           format-muted = "";
           on-click = "pavucontrol";
+        };
+
+        cpu = {
+          interval = 2;
+          format = " {usage}%";
+          tooltip = true;
         };
 
         network = {
@@ -173,6 +181,7 @@
       #clock,
       #battery,
       #pulseaudio,
+      #cpu,
       #backlight,
       #network,
       #tray,
@@ -193,6 +202,11 @@
       #pulseaudio {
         color: #689d6a;
         border-bottom: 5px solid #689d6a;
+      }
+
+      #cpu {
+        color: #8ec07c;
+        border-bottom: 5px solid #8ec07c;
       }
 
       #network {
