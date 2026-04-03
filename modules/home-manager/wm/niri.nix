@@ -8,6 +8,7 @@ let
 in {
   home.packages = with pkgs; [
     swaylock
+    fuzzel
   ];
 
   xdg.configFile."niri/config.kdl".text = ''
@@ -52,7 +53,7 @@ in {
     }
 
     spawn-at-startup "nm-applet"
-  spawn-at-startup "${wallpaperScript}"
+    spawn-at-startup "${wallpaperScript}"
 
     binds {
       Mod+Shift+Slash { show-hotkey-overlay; }
@@ -65,6 +66,7 @@ in {
       Mod+Ctrl+Shift+T { spawn "kitty" "--class" "floating-terminal"; }
       Mod+Tab { spawn "${pkgs.rofi}/bin/rofi" "-show" "window" "-theme" "${rofiLauncher}"; }
 
+      Mod+Q { close-window; }
       Mod+Shift+C { close-window; }
       Mod+F { toggle-window-floating; }
       Mod+Shift+F { fullscreen-window; }
@@ -125,8 +127,8 @@ in {
       Mod+Ctrl+8 { move-column-to-workspace 8; }
       Mod+Ctrl+9 { move-column-to-workspace 9; }
 
-      Mod+D { spawn "${pkgs.rofi}/bin/rofi" "-show" "drun" "-show-icons" "-theme" "${rofiLauncher}"; }
-      Mod+A { spawn "${pkgs.rofi}/bin/rofi" "-show" "drun" "-show-icons" "-theme" "${rofiLauncher}"; }
+      Mod+D { spawn "${pkgs.fuzzel}/bin/fuzzel"; }
+      Mod+A { spawn "${pkgs.fuzzel}/bin/fuzzel"; }
       Mod+C { spawn "${pkgs.rofi}/bin/rofi" "-show" "calc" "-modi" "calc" "-no-show-match" "-no-sort" "-theme" "${rofiLauncher}"; }
       Mod+P { spawn "rofi-pass"; }
       Mod+V { spawn "clipmenu"; }
