@@ -25,7 +25,7 @@ EOF
 }
 
 list_roles() {
-  echo "Available roles: core, desktop, dev, gaming, vm"
+  echo "Available roles: core, desktop, dev, gaming, vm, gpu-nvidia-proprietary, gpu-nvidia-open, gpu-amd, gpu-intel"
 }
 
 while [[ $# -gt 0 ]]; do
@@ -104,7 +104,7 @@ else
   echo "Role mode: ${ROLES[*]}"
   for role in "${ROLES[@]}"; do
     case "${role}" in
-      core|desktop|dev|gaming|vm) ;;
+      core|desktop|dev|gaming|vm|gpu-nvidia-proprietary|gpu-nvidia-open|gpu-amd|gpu-intel) ;;
       *)
         echo "Unknown role: ${role}"
         list_roles
