@@ -51,7 +51,11 @@ usermod -aG "$(IFS=,; echo "${groups_to_add[*]}")" "${ARCH_USER}"
 echo "Shell and virtualization extras"
 chsh -s /bin/zsh "${ARCH_USER}" || true
 if command -v virsh >/dev/null 2>&1; then
-  virsh net-autostart default || true
+  if [[ -S /run/libvirt/libvirt-sock ]] || [[ -S /run/libvirt/virtqemud-sock ]]; then
+    virsh -c qemu:///system net-autostart default || true
+  else
+    echo "Skip: libvirt socket is not available yet"
+  fi
 fi
 
 echo "Service setup complete. Reboot is recommended."
