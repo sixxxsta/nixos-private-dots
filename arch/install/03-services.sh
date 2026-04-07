@@ -8,21 +8,50 @@ if [[ "${EUID}" -ne 0 ]]; then
   exit 1
 fi
 
+enable_if_exists() {
+  local unit="$1"
+  if systemctl list-unit-files --type=service --type=socket | grep -q "^${unit}"; then
+    systemctl enable "${unit}"
+  else
+    echo "Skip: ${unit} is not installed"
+  fi
+}
+
 echo "Enable core services"
-systemctl enable sddm
-systemctl enable bluetooth
-systemctl enable docker
-systemctl enable libvirtd
+enable_if_exists sddm.service
+enable_if_exists bluetooth.service
+enable_if_exists docker.service
+
+# Newer libvirt setups may use virtqemud instead of libvirtd.
+if systemctl list-unit-files --type=service --type=socket | grep -q '^libvirtd.service'; then
+  systemctl enable libvirtd.service
+elif systemctl list-unit-files --type=service --type=socket | grep -q '^virtqemud.service'; then
+  systemctl enable virtqemud.service
+elif systemctl list-unit-files --type=service --type=socket | grep -q '^virtqemud.socket'; then
+  systemctl enable virtqemud.socket
+else
+  echo "Skip: libvirt daemon is not installed"
+fi
 
 if systemctl list-unit-files | grep -q '^waydroid-container.service'; then
-  systemctl enable waydroid-container
+  systemctl enable waydroid-container.service
 fi
 
 echo "User group setup for ${ARCH_USER}"
-usermod -aG wheel,input,libvirtd,storage,docker,video,vboxusers "${ARCH_USER}"
+groups_to_add=(wheel input storage video)
+
+for g in docker libvirtd vboxusers; do
+  if getent group "${g}" >/dev/null 2>&1; then
+    groups_to_add+=("${g}")
+  fi
+done
+
+usermod -aG "$(IFS=,; echo "${groups_to_add[*]}")" "${ARCH_USER}"
 
 echo "Shell and virtualization extras"
 chsh -s /bin/zsh "${ARCH_USER}" || true
-virsh net-autostart default || true
+if command -v virsh >/dev/null 2>&1; then
+  virsh net-autostart default || true
+fi
 
 echo "Service setup complete. Reboot is recommended."
