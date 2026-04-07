@@ -6,6 +6,7 @@ gallery-dl
 gruvbox-plus-icon-pack-git
 insomnia
 librewolf-bin
+qview
 niri
 obsidian
 planify

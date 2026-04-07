@@ -1,1 +1,5 @@
 htmx-lsp-bin
+pgadmin4
+protoc-gen-go
+protoc-gen-go-grpc
+sqls

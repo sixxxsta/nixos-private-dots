@@ -1,1 +1,2 @@
 protonup-qt-bin
+dxvk-bin

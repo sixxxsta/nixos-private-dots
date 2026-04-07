@@ -16,7 +16,6 @@ strawberry
 obs-studio
 mpv
 imv
-qview
 feh
 ranger
 thunar

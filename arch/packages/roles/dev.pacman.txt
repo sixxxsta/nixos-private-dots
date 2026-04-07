@@ -27,13 +27,9 @@ bash-language-server
 shellcheck
 shfmt
 taplo
-sqls
 sqlite
-pgadmin4
 dbeaver
 protobuf
-protoc-gen-go
-protoc-gen-go-grpc
 kubectl
 helm
 terraform
